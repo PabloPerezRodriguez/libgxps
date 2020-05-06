@@ -150,7 +150,9 @@ fixed_doc_start_element (GMarkupParseContext  *context,
 	} else if (strcmp (element_name, "PageContent.LinkTargets") == 0) {
 	} else if (strcmp (element_name, "FixedDocument") == 0) {
 		/* Nothing to do */
-	} else {
+	} else if (strcmp(element_name, "trn:Silver") == 0) {
+        /* Nothing to do */
+    } else {
 		gxps_parse_error (context,
 				  data->doc->priv->source,
 				  G_MARKUP_ERROR_UNKNOWN_ELEMENT,
@@ -189,7 +191,9 @@ fixed_doc_end_element (GMarkupParseContext  *context,
                 g_list_free (data->pages);
 	} else if (strcmp (element_name, "LinkTarget") == 0) {
 		/* Do Nothing */
-	} else {
+	} else if (strcmp(element_name, "trn:Silver") == 0) {
+        /* Nothing to do */
+    } else {
 		gxps_parse_error (context,
 				  data->doc->priv->source,
 				  G_MARKUP_ERROR_UNKNOWN_ELEMENT,
